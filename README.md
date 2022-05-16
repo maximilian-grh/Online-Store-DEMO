@@ -1,3 +1,3 @@
 → NextJS | Typescript <br>
-→ Tailwind Css
-→ Stripe Full Integration
+→ Tailwind Css <br>
+→ Stripe Full Integration <br>
