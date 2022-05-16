@@ -3,6 +3,7 @@ import Navbar from "../components/Navbar";
 import Layout from "../components/Layout";
 import Hero from "../components/Hero";
 import "tailwindcss/tailwind.css";
+import Checkout from "./Checkout";
 
 const Home: NextPage = () => {
   return (
@@ -10,6 +11,7 @@ const Home: NextPage = () => {
       <Layout>
         <Navbar />
         <Hero />
+        <Checkout />
       </Layout>
     </>
   );
