@@ -17,8 +17,6 @@ import {
 } from "@heroicons/react/outline";
 import { ChevronDownIcon } from "@heroicons/react/solid";
 
-import Profile from "../components/Profile";
-
 const solutions = [
   {
     name: "Analytics",
@@ -101,6 +99,7 @@ function classNames(...classes) {
 }
 
 import { useSession, signIn, signOut } from "next-auth/react";
+import { LogoutIcon } from "@heroicons/react/outline";
 
 export default function Example() {
   const { data: session } = useSession();
@@ -304,17 +303,20 @@ export default function Example() {
               )}
             </Popover>
           </Popover.Group>
-
           {session ? (
             <div
               onClick={() => signOut()}
               className="hidden md:flex items-center justify-end md:flex-1 lg:w-0"
             >
-              <a className="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border-2 border-indigo-600 rounded-md shadow-sm text-base font-medium text-indigo-600 bg-transparent hover:bg-indigo-700 cursor-pointer hover:text-white">
-                Abmelden
-              </a>
+            <div className="flex-col items-center justify-start font-semibold text-xs cursor-pointer hover:text-indigo-600">
+            <p className="truncate font-bold">Guten Tag!</p>
+            <p className="truncate font-light uppercase">{session?.user?.name}</p>
+            </div>
+            <LogoutIcon className="cursor-pointer h-6 w-6 ml-6 mr-6 hover:fill-white hover:stroke-red-600"/>
+           
             </div>
           ) : (
+            
             <div
               onClick={() => signIn()}
               className="hidden md:flex items-center justify-end md:flex-1 lg:w-0"
