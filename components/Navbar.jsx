@@ -100,7 +100,10 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
+import { useSession, signIn, signOut } from "next-auth/react";
+
 export default function Example() {
+  const { data: session } = useSession();
   return (
     <Popover className="relative bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
@@ -301,23 +304,26 @@ export default function Example() {
               )}
             </Popover>
           </Popover.Group>
-          <div className="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
-            <a href="/api/auth/login">Login</a>
-            <a
-              href="#"
-              className="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900"
+
+          {session ? (
+            <div
+              onClick={() => signOut()}
+              className="hidden md:flex items-center justify-end md:flex-1 lg:w-0"
             >
-              ____
-            </a>
-            <a href="/api/auth/logout">Logout</a>
-            <Profile />
-            <a
-              href="#"
-              className="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700"
+              <a className="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border-2 border-indigo-600 rounded-md shadow-sm text-base font-medium text-indigo-600 bg-transparent hover:bg-indigo-700 cursor-pointer hover:text-white">
+                Abmelden
+              </a>
+            </div>
+          ) : (
+            <div
+              onClick={() => signIn()}
+              className="hidden md:flex items-center justify-end md:flex-1 lg:w-0"
             >
-              Sign up
-            </a>
-          </div>
+              <a className="cursor-pointer ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700">
+                Anmelden
+              </a>
+            </div>
+          )}
         </div>
       </div>
 
