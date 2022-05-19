@@ -308,15 +308,15 @@ export default function Example() {
               onClick={() => signOut()}
               className="hidden md:flex items-center justify-end md:flex-1 lg:w-0"
             >
-            <div className="flex-col items-center justify-start font-semibold text-xs cursor-pointer hover:text-indigo-600">
-            <p className="truncate font-bold">Guten Tag!</p>
-            <p className="truncate font-light uppercase">{session?.user?.name}</p>
-            </div>
-            <LogoutIcon className="cursor-pointer h-6 w-6 ml-6 mr-6 hover:fill-white hover:stroke-red-600"/>
-           
+              <div className="flex-col items-center justify-start font-semibold text-xs cursor-pointer hover:text-indigo-600">
+                <p className="truncate font-bold">Guten Tag!</p>
+                <p className="truncate font-light uppercase">
+                  {session?.user?.name}
+                </p>
+              </div>
+              <LogoutIcon className="cursor-pointer h-6 w-6 ml-6 mr-6 hover:fill-white hover:stroke-red-600" />
             </div>
           ) : (
-            
             <div
               onClick={() => signIn()}
               className="hidden md:flex items-center justify-end md:flex-1 lg:w-0"
@@ -355,7 +355,10 @@ export default function Example() {
                 <div className="-mr-2">
                   <Popover.Button className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
                     <span className="sr-only">Close menu</span>
-                    <XIcon className="h-6 w-6" aria-hidden="true" />
+                    <XIcon
+                      className="h-6 w-6 stroke-black"
+                      aria-hidden="true"
+                    />
                   </Popover.Button>
                 </div>
               </div>
@@ -404,19 +407,32 @@ export default function Example() {
                   </a>
                 ))}
               </div>
-              <div>
-                <a
-                  href="#"
-                  className="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700"
-                >
-                  Sign up
-                </a>
-                <p className="mt-6 text-center text-base font-medium text-gray-500">
-                  Existing customer?{" "}
-                  <a href="#" className="text-indigo-600 hover:text-indigo-500">
-                    Sign in
-                  </a>
-                </p>
+
+              <div className="rounded-lg pt-10">
+             
+                {session ? (
+                  <div
+                    onClick={() => signOut()}
+                    className="items-center justify-between flex"
+                  >
+                     <div className="flex-col items-center justify-start font-semibold text-xs cursor-pointer hover:text-indigo-600">
+                      <p className="truncate font-bold">Guten Tag!</p>
+                      <p className="truncate font-light uppercase">
+                        {session?.user?.name}
+                      </p>
+                    </div>
+                    <LogoutIcon className="cursor-pointer h-6 w-6 ml-6 mr-6 hover:fill-white hover:stroke-red-600" />
+                  </div>
+                ) : (
+                  <div
+                    onClick={() => signIn()}
+                    className="hidden md:flex items-center justify-end md:flex-1 lg:w-0"
+                  >
+                    <a className="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700">
+                      Anmelden
+                    </a>
+                  </div>
+                )}
               </div>
             </div>
           </div>
