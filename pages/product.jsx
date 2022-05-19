@@ -68,7 +68,6 @@ export default function Example() {
 
   return (
     <>
-      <Navbar />
       <div className="bg-white">
         <div className="pt-6">
           {/* Image gallery */}

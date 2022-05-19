@@ -10,7 +10,7 @@ const Success = () => {
     runFireworks();
   }, []);
   return (
-    <div className="mx-auto justify-center text-center m-8">
+    <div className="mx-auto justify-center text-center m-8 h-screen">
       <runFireworks />
       <div className="pt-20">
         <CheckIcon class="mx-auto justify-center w-20 h-20 mb-10 stroke-white fill-white bg-green-500 rounded-full px-2 py-3" />
@@ -30,7 +30,7 @@ const Success = () => {
           <button
             type="button"
             width="300px"
-            className="bg-black text-white py-2 px-4 rounded-full mt-10"
+            className="bg-indigo-600 text-white py-2 px-4 rounded-lg mt-10"
           >
             Einkauf fortfahren
           </button>

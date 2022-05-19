@@ -15,11 +15,9 @@ const Home: NextPage = () => {
     <>
       <Layout>
         <InfoBanner />
-        <Navbar />
         <Hero />
         <Feature />
         <ProductFeature />
-        <Footer />
       </Layout>
     </>
   );
