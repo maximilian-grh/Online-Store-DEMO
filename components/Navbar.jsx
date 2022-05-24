@@ -14,6 +14,7 @@ import {
   SupportIcon,
   ViewGridIcon,
   XIcon,
+  UserCircleIcon,
 } from "@heroicons/react/outline";
 import { ChevronDownIcon } from "@heroicons/react/solid";
 
@@ -304,18 +305,26 @@ export default function Example() {
             </Popover>
           </Popover.Group>
           {session ? (
-            <div
-              onClick={() => signOut()}
-              className="hidden md:flex items-center justify-end md:flex-1 lg:w-0"
-            >
-              <div className="flex-col items-center justify-start font-semibold text-xs cursor-pointer hover:text-indigo-600">
-                <p className="truncate font-bold">Guten Tag!</p>
-                <p className="truncate font-light uppercase">
-                  {session?.user?.name}
-                </p>
+            <>
+              <div className="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
+                <a
+                  href="/profile"
+                  className="flex items-center justify-start font-semibold text-xs cursor-pointer hover:text-indigo-600"
+                >
+                   <div className="flex h-7 w-7">
+                        <UserCircleIcon />
+                    </div>
+                  <div className="flex-col pl-2">
+                  <p className="truncate font-bold">Guten Tag!</p>
+                  <p className="truncate font-light uppercase">
+                    {session?.user?.name}
+                  </p>
+                  </div>
+                </a>
+
+          
               </div>
-              <LogoutIcon className="cursor-pointer h-6 w-6 ml-6 mr-6 hover:fill-white hover:stroke-red-600" />
-            </div>
+            </>
           ) : (
             <div
               onClick={() => signIn()}
@@ -409,24 +418,31 @@ export default function Example() {
               </div>
 
               <div className="rounded-lg pt-10">
-             
                 {session ? (
-                  <div
-                    onClick={() => signOut()}
-                    className="items-center justify-between flex"
-                  >
-                     <div className="flex-col items-center justify-start font-semibold text-xs cursor-pointer hover:text-indigo-600">
-                      <p className="truncate font-bold">Guten Tag!</p>
-                      <p className="truncate font-light uppercase">
-                        {session?.user?.name}
-                      </p>
+                  <>
+                    <div className="items-center justify-between flex">
+                      <a
+                        href="/profile"
+                        className="flex items-center justify-start font-semibold text-xs cursor-pointer hover:text-indigo-600">
+                        <div className="h-6 w-6">
+                          <UserCircleIcon />
+                        </div>
+                        <div className="flex-col pl-2">
+                        <p className="truncate font-bold">Guten Tag!</p>
+                        <p className="truncate font-light uppercase">
+                          {session?.user?.name}
+                        </p>
+                        </div>
+                      </a>
+                      <div onClick={() => signOut()}>
+                        <LogoutIcon className="cursor-pointer h-6 w-6 ml-6 mr-6 hover:fill-white hover:stroke-red-600" />
+                      </div>
                     </div>
-                    <LogoutIcon className="cursor-pointer h-6 w-6 ml-6 mr-6 hover:fill-white hover:stroke-red-600" />
-                  </div>
+                  </>
                 ) : (
                   <div
                     onClick={() => signIn()}
-                    className="hidden md:flex items-center justify-end md:flex-1 lg:w-0"
+                    className="items-center justify-end"
                   >
                     <a className="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700">
                       Anmelden

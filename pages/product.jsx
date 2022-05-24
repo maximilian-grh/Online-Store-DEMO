@@ -2,7 +2,6 @@ import { useState } from "react";
 import { StarIcon } from "@heroicons/react/solid";
 import { RadioGroup } from "@headlessui/react";
 import "tailwindcss/tailwind.css";
-import Navbar from "../components/Navbar";
 
 const product = {
   name: "Basic Tee 6-Pack",
