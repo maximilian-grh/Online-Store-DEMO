@@ -10,7 +10,7 @@ const features = [
     description:
       "Solid walnut base with rare earth magnets and powder coated steel card cover",
   },
-  { name: "E-Mail", description: '6.25" x 3.55" x 1.15"' },
+  { name: "E-Mail", description: "" },
   {
     name: "Telefonnummer",
     description: "Hand sanded and finished with natural oil",
@@ -22,7 +22,7 @@ export default function Example() {
   const { data: session } = useSession();
   return (
     <div className="bg-white">
-      <div className="max-w-2xl mx-auto py-24 px-4 grid items-center grid-cols-1 gap-y-16 gap-x-8 sm:px-6 sm:py-32 lg:max-w-7xl lg:px-8 lg:grid-cols-2">
+      <div className="max-w-2xl mx-auto py-24 px-4 grid items-center grid-cols-1 gap-y-16 gap-x-8 ">
         <div>
           <h2 className="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
             Mein Konto
@@ -34,11 +34,10 @@ export default function Example() {
                 onClick={() => signOut()}
                 className="items-center justify-between flex"
               >
-                <div className="flex-col items-center justify-start font-semibold text-lg cursor-pointer hover:text-indigo-600">
+                <div className="flex-col items-center justify-start font-semibold text-lg">
                   <p className="truncate font-bold">Guten Tag!</p>
                   <p className="truncate font-light uppercase">
                     {session?.user?.name}
-                    {session?.user?.email}
                   </p>
                 </div>
                 <div className="flex text-sm items-center bg-red-100 hover:bg-red-500 hover:text-white py-2 px-4 cursor-pointer rounded-lg">

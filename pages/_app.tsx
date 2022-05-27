@@ -8,7 +8,7 @@ import type { AppProps } from "next/app";
 import { UserProvider } from "@auth0/nextjs-auth0";
 import { SessionProvider } from "next-auth/react";
 
-function MyApp({ Component, pageProps: {session, ...pageProps } }: AppProps) {
+function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
   return (
     <>
       <div>
