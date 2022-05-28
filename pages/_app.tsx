@@ -4,6 +4,7 @@ import { StateContext } from "../context/StateContext";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import type { AppProps } from "next/app";
+import "tailwindcss/tailwind.css";
 
 import { UserProvider } from "@auth0/nextjs-auth0";
 import { SessionProvider } from "next-auth/react";

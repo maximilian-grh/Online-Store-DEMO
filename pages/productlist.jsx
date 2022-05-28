@@ -12,14 +12,30 @@ const staticProducts = [
     color: "Black",
   },
   {
-    id: 2,
-    name: "Basic Tee",
-    href: "#",
-    imageSrc:
-      "https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg",
-    imageAlt: "Front of men's Basic Tee in black.",
-    price: "$45",
-    color: "Black",
+    object: "list",
+    url: "/v1/products",
+    has_more: false,
+    data: [
+      {
+        id: "prod_LlsE3GKwYxzoCa",
+        object: "product",
+        active: true,
+        created: 1653724504,
+        default_price: null,
+        description: null,
+        images: [],
+        livemode: true,
+        metadata: {},
+        name: "stand up paddleboard",
+        package_dimensions: null,
+        shippable: null,
+        statement_descriptor: null,
+        tax_code: null,
+        unit_label: null,
+        updated: 1653724504,
+        url: null,
+      },
+    ],
   },
 ];
 
@@ -27,10 +43,6 @@ export default function Example() {
   return (
     <div className="bg-white">
       <div className="max-w-2xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
-        <h2 className="text-2xl font-extrabold tracking-tight text-gray-900">
-          Customers also purchased
-        </h2>
-
         <div className="mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
           {staticProducts.map((product) => (
             <div key={product.id} className="group relative">
