@@ -15,84 +15,80 @@ import {
   ViewGridIcon,
   XIcon,
   UserCircleIcon,
+  SearchIcon,
 } from "@heroicons/react/outline";
 import { ChevronDownIcon } from "@heroicons/react/solid";
 
 const solutions = [
   {
-    name: "Analytics",
-    description:
-      "Get a better understanding of where your traffic is coming from.",
-    href: "#",
-    icon: ChartBarIcon,
+    name: "Unsere Produkte",
+    description: "Kurzbeschreibung",
+    href: "/productlist",
+    icon: SearchIcon,
   },
   {
-    name: "Engagement",
-    description: "Speak directly to your customers in a more meaningful way.",
+    name: "Titel",
+    description: "Kurzbeschreibung",
     href: "#",
     icon: CursorClickIcon,
   },
   {
-    name: "Security",
-    description: "Your customers' data will be safe and secure.",
+    name: "Titel",
+    description: "Kurzbeschreibung",
     href: "#",
     icon: ShieldCheckIcon,
   },
   {
-    name: "Integrations",
-    description: "Connect with third-party tools that you're already using.",
+    name: "Titel",
+    description: "Kurzbeschreibung",
     href: "#",
     icon: ViewGridIcon,
   },
   {
-    name: "Automations",
-    description:
-      "Build strategic funnels that will drive your customers to convert",
+    name: "Titel",
+    description: "Kurzbeschreibung",
     href: "#",
     icon: RefreshIcon,
   },
 ];
 const callsToAction = [
-  { name: "Watch Demo", href: "#", icon: PlayIcon },
-  { name: "Contact Sales", href: "#", icon: PhoneIcon },
+  { name: "TITEL", href: "#", icon: PlayIcon },
+  { name: "TITEL", href: "#", icon: PhoneIcon },
 ];
 const resources = [
   {
-    name: "Help Center",
-    description:
-      "Get all of your questions answered in our forums or contact support.",
+    name: "Titel",
+    description: "Kurzbeschreibung",
     href: "#",
-    icon: SupportIcon,
+    icon: SearchIcon,
   },
   {
-    name: "Guides",
-    description:
-      "Learn how to maximize our platform to get the most out of it.",
+    name: "Titel",
+    description: "Kurzbeschreibung",
     href: "#",
     icon: BookmarkAltIcon,
   },
   {
-    name: "Events",
-    description:
-      "See what meet-ups and other events we might be planning near you.",
+    name: "Titel",
+    description: "Kurzbeschreibung",
     href: "#",
     icon: CalendarIcon,
   },
   {
-    name: "Security",
-    description: "Understand how we take your privacy seriously.",
+    name: "Titel",
+    description: "Kurzbeschreibung",
     href: "#",
     icon: ShieldCheckIcon,
   },
 ];
 const recentPosts = [
-  { id: 1, name: "Boost your conversion rate", href: "#" },
+  { id: 1, name: "Beschreibung", href: "#" },
   {
     id: 2,
-    name: "How to use search engine optimization to drive traffic to your site",
+    name: "Beschreibung",
     href: "#",
   },
-  { id: 3, name: "Improve your customer experience", href: "#" },
+  { id: 3, name: "Beschreibung", href: "#" },
 ];
 
 function classNames(...classes) {
@@ -102,7 +98,7 @@ function classNames(...classes) {
 import { useSession, signIn, signOut } from "next-auth/react";
 import { LogoutIcon } from "@heroicons/react/outline";
 
-export default function Example() {
+export default function Navbar() {
   const { data: session } = useSession();
   return (
     <Popover className="relative bg-white">
@@ -134,7 +130,7 @@ export default function Example() {
                       "group bg-white rounded-md inline-flex items-center text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                     )}
                   >
-                    <span>Solutions</span>
+                    <span>Produkte</span>
                     <ChevronDownIcon
                       className={classNames(
                         open ? "text-gray-600" : "text-gray-400",
@@ -200,19 +196,6 @@ export default function Example() {
               )}
             </Popover>
 
-            <a
-              href="#"
-              className="text-base font-medium text-gray-500 hover:text-gray-900"
-            >
-              Pricing
-            </a>
-            <a
-              href="#"
-              className="text-base font-medium text-gray-500 hover:text-gray-900"
-            >
-              Docs
-            </a>
-
             <Popover className="relative">
               {({ open }) => (
                 <>
@@ -222,7 +205,7 @@ export default function Example() {
                       "group bg-white rounded-md inline-flex items-center text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                     )}
                   >
-                    <span>More</span>
+                    <span>Über uns</span>
                     <ChevronDownIcon
                       className={classNames(
                         open ? "text-gray-600" : "text-gray-400",
@@ -268,7 +251,7 @@ export default function Example() {
                         <div className="px-5 py-5 bg-gray-50 sm:px-8 sm:py-8">
                           <div>
                             <h3 className="text-sm tracking-wide font-medium text-gray-500 uppercase">
-                              Recent Posts
+                              TITEL
                             </h3>
                             <ul role="list" className="mt-4 space-y-4">
                               {recentPosts.map((post) => (
@@ -292,7 +275,7 @@ export default function Example() {
                               className="font-medium text-indigo-600 hover:text-indigo-500"
                             >
                               {" "}
-                              View all posts{" "}
+                              Alle anzeigen{" "}
                               <span aria-hidden="true">&rarr;</span>
                             </a>
                           </div>
@@ -311,18 +294,16 @@ export default function Example() {
                   href="/profile"
                   className="flex items-center justify-start font-semibold text-xs cursor-pointer hover:text-indigo-600"
                 >
-                   <div className="flex h-7 w-7">
-                        <UserCircleIcon />
-                    </div>
+                  <div className="flex h-7 w-7">
+                    <UserCircleIcon />
+                  </div>
                   <div className="flex-col pl-2">
-                  <p className="truncate font-bold">Guten Tag!</p>
-                  <p className="truncate font-light uppercase">
-                    {session?.user?.name}
-                  </p>
+                    <p className="truncate font-bold">Guten Tag!</p>
+                    <p className="truncate font-light uppercase">
+                      {session?.user?.name}
+                    </p>
                   </div>
                 </a>
-
-          
               </div>
             </>
           ) : (
@@ -423,15 +404,16 @@ export default function Example() {
                     <div className="items-center justify-between flex">
                       <a
                         href="/profile"
-                        className="flex items-center justify-start font-semibold text-xs cursor-pointer hover:text-indigo-600">
+                        className="flex items-center justify-start font-semibold text-xs cursor-pointer hover:text-indigo-600"
+                      >
                         <div className="h-6 w-6">
                           <UserCircleIcon />
                         </div>
                         <div className="flex-col pl-2">
-                        <p className="truncate font-bold">Guten Tag!</p>
-                        <p className="truncate font-light uppercase">
-                          {session?.user?.name}
-                        </p>
+                          <p className="truncate font-bold">Guten Tag!</p>
+                          <p className="truncate font-light uppercase">
+                            {session?.user?.name}
+                          </p>
                         </div>
                       </a>
                       <div onClick={() => signOut()}>

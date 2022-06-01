@@ -22,7 +22,8 @@
     "react": "18.1.0",
     "react-dom": "18.1.0",
     "react-hot-toast": "^2.2.0",
-    "stripe": "^9.1.0"
+    "stripe": "^9.1.0",
+    "use-shopping-cart": "^3.1.2"
   },
   "devDependencies": {
     "@types/node": "17.0.33",

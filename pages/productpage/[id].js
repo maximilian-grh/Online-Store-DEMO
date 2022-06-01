@@ -28,7 +28,7 @@ const Pricing = ({ objects }) => {
                     {object.description}
                   </p>
                   <p className="text-xl mt-3 font-medium text-black">
-                    {object.price / 100}€
+                    €{object.price / 100}
                   </p>
                   <button
                     type="submit"
@@ -48,10 +48,7 @@ const Pricing = ({ objects }) => {
 
 export const getStaticProps = async () => {
   const stripe = initStripe(process.env.STRIPE_SECRET_KEY);
-
-  const { data: prices } = await stripe.prices.list({
-    limit: 1,
-  });
+  const { data: prices } = await stripe.prices.list();
 
   const objects = await Promise.all(
     prices.map(async (price) => {

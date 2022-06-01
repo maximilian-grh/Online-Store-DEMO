@@ -6,11 +6,11 @@ export default async (req, res) => {
   if (session) {
     res.send({
       content:
-        "This is protected content. You can access this content because you are signed in.",
+        "Geschützer Inhalt. Du kannst das sehen da du angemeldet bist.",
     });
   } else {
     res.send({
-      error: "You must be sign in to view the protected content on this page.",
+      error: "Du musst dich anmelden um diesen Inhalt sehen zu können.",
     });
   }
 };

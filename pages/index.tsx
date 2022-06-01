@@ -1,14 +1,12 @@
 import type { NextPage } from "next";
 import "tailwindcss/tailwind.css";
 
-import Navbar from "../components/Navbar";
 import Layout from "../components/Layout";
 import Hero from "../components/Hero";
-import Checkout from "./checkout";
 import Feature from "../components/Feature";
 import ProductFeature from "../components/ProductFeature";
 import InfoBanner from "../components/InfoBanner";
-import Footer from "../components/Footer";
+import ProductFeed from "../components/ProductFeed";
 
 const Home: NextPage = () => {
   return (
@@ -16,6 +14,7 @@ const Home: NextPage = () => {
       <Layout>
         <InfoBanner />
         <Hero />
+        <ProductFeed />
         <Feature />
         <ProductFeature />
       </Layout>

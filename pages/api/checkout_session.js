@@ -26,7 +26,6 @@ export default async function handler(req, res) {
                 currency: "eur",
               },
               display_name: "Kostenloser Versand",
-              // Delivers between 5-7 business days
               delivery_estimate: {
                 minimum: {
                   unit: "business_day",
@@ -47,7 +46,6 @@ export default async function handler(req, res) {
                 currency: "eur",
               },
               display_name: "Express Versand",
-              // Delivers in exactly 1 business day
               delivery_estimate: {
                 minimum: {
                   unit: "business_day",
@@ -71,6 +69,6 @@ export default async function handler(req, res) {
     }
   } else {
     res.setHeader("Allow", "POST");
-    res.status(405).end("Method Not Allowed");
+    res.status(405).end("Methode verwehrt!");
   }
 }

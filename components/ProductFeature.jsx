@@ -1,4 +1,3 @@
-/* This example requires Tailwind CSS v2.0+ */
 const features = [
   { name: "Origin", description: "Designed by Good Goods, Inc." },
   {
@@ -16,7 +15,7 @@ const features = [
   },
 ];
 
-export default function Example() {
+export default function ProductFeature() {
   return (
     <div className="bg-white">
       <div className="max-w-2xl mx-auto py-24 px-4 grid items-center grid-cols-1 gap-y-16 gap-x-8 sm:px-6 sm:py-32 lg:max-w-7xl lg:px-8 lg:grid-cols-2">

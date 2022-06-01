@@ -1,8 +1,6 @@
 import React from "react";
-import { Toaster } from "react-hot-toast";
-import { StateContext } from "../context/StateContext";
 import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
+import Footer from '../components/Footer';
 import type { AppProps } from "next/app";
 import "tailwindcss/tailwind.css";
 

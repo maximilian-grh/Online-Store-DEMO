@@ -1,16 +1,4 @@
-/* This example requires Tailwind CSS v2.0+ */
-import { Fragment } from "react";
-import { Popover, Transition } from "@headlessui/react";
-import { MenuIcon, XIcon } from "@heroicons/react/outline";
-
-const navigation = [
-  { name: "Product", href: "#" },
-  { name: "Features", href: "#" },
-  { name: "Marketplace", href: "#" },
-  { name: "Company", href: "#" },
-];
-
-export default function Example() {
+export default function Hero() {
   return (
     <div className="bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto">
