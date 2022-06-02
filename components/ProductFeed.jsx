@@ -1,5 +1,7 @@
 import React from "react";
 
-export default function ProductFeed() {
+const ProductFeed = () => {
   return <div>ProductFeed</div>;
-}
+};
+
+export default ProductFeed;

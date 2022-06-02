@@ -1,12 +1,16 @@
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 
+const customer = await stripe.customers.retrieve({
+  email: user.email,
+});
+
 export default async function handler(req, res) {
   if (req.method === "POST") {
     try {
       const session = await stripe.checkout.sessions.create({
         line_items: [
           {
-            price: "price_1L4LE8AbaxiBqw0m5nbtB8U9",
+            price: "price_1L4nxAAbaxiBqw0mL2tuM6D2",
             quantity: 1,
           },
         ],
@@ -60,15 +64,17 @@ export default async function handler(req, res) {
           },
         ],
         mode: "payment",
+        email: customer.id,
         success_url: `${req.headers.origin}/success`,
         cancel_url: `${req.headers.origin}/canceled`,
       });
+
       res.redirect(303, session.url);
     } catch (err) {
       res.status(err.statusCode || 500).json(err.message);
     }
   } else {
     res.setHeader("Allow", "POST");
-    res.status(405).end("Methode verwehrt!");
+    res.status(405).end("Method Not Allowed");
   }
 }
