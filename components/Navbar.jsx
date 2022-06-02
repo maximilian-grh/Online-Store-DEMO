@@ -18,6 +18,7 @@ import {
   SearchIcon,
 } from "@heroicons/react/outline";
 import { ChevronDownIcon } from "@heroicons/react/solid";
+import { useUser } from "@auth0/nextjs-auth0";
 
 const solutions = [
   {
@@ -94,12 +95,10 @@ const recentPosts = [
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
-
-import { useSession, signIn, signOut } from "next-auth/react";
 import { LogoutIcon } from "@heroicons/react/outline";
 
 export default function Navbar() {
-  const { data: session } = useSession();
+  const { user } = useUser();
   return (
     <Popover className="relative bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
@@ -287,34 +286,31 @@ export default function Navbar() {
               )}
             </Popover>
           </Popover.Group>
-          {session ? (
-            <>
-              <div className="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
-                <a
-                  href="/profile"
-                  className="flex items-center justify-start font-semibold text-xs cursor-pointer hover:text-indigo-600"
-                >
-                  <div className="flex h-7 w-7">
-                    <UserCircleIcon />
-                  </div>
-                  <div className="flex-col pl-2">
-                    <p className="truncate font-bold">Guten Tag!</p>
-                    <p className="truncate font-light uppercase">
-                      {session?.user?.name}
-                    </p>
-                  </div>
-                </a>
-              </div>
-            </>
+
+          {user ? (
+            <div className="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
+              <a
+                href="/profile"
+                className="flex items-center justify-start font-semibold text-xs cursor-pointer hover:text-indigo-600"
+              >
+                <div className="flex h-7 w-7">
+                  <UserCircleIcon />
+                </div>
+                <div className="flex-col pl-2">
+                  <p className="truncate font-bold">Guten Tag!</p>
+                  <p className="truncate font-light uppercase">{user.name}</p>
+                </div>
+              </a>
+            </div>
           ) : (
-            <div
-              onClick={() => signIn()}
+            <a
+              href="/api/auth/login"
               className="hidden md:flex items-center justify-end md:flex-1 lg:w-0"
             >
               <a className="cursor-pointer ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700">
                 Anmelden
               </a>
-            </div>
+            </a>
           )}
         </div>
       </div>
@@ -399,38 +395,32 @@ export default function Navbar() {
               </div>
 
               <div className="rounded-lg pt-10">
-                {session ? (
-                  <>
-                    <div className="items-center justify-between flex">
-                      <a
-                        href="/profile"
-                        className="flex items-center justify-start font-semibold text-xs cursor-pointer hover:text-indigo-600"
-                      >
-                        <div className="h-6 w-6">
-                          <UserCircleIcon />
-                        </div>
-                        <div className="flex-col pl-2">
-                          <p className="truncate font-bold">Guten Tag!</p>
-                          <p className="truncate font-light uppercase">
-                            {session?.user?.name}
-                          </p>
-                        </div>
-                      </a>
-                      <div onClick={() => signOut()}>
-                        <LogoutIcon className="cursor-pointer h-6 w-6 ml-6 mr-6 hover:fill-white hover:stroke-red-600" />
+                <>
+                  <div className="items-center justify-between flex">
+                    <a
+                      href="/profile"
+                      className="flex items-center justify-start font-semibold text-xs cursor-pointer hover:text-indigo-600"
+                    >
+                      <div className="h-6 w-6">
+                        <UserCircleIcon />
                       </div>
-                    </div>
-                  </>
-                ) : (
-                  <div
-                    onClick={() => signIn()}
-                    className="items-center justify-end"
-                  >
-                    <a className="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700">
-                      Anmelden
+                      <div className="flex-col pl-2">
+                        <p className="truncate font-bold">Guten Tag!</p>
+                        <p className="truncate font-light uppercase">
+                          //USER NAME
+                        </p>
+                      </div>
+                    </a>
+                    <a href="/api/auth/logout">
+                      <LogoutIcon className="cursor-pointer h-6 w-6 ml-6 mr-6 hover:fill-white hover:stroke-red-600" />
                     </a>
                   </div>
-                )}
+                </>
+                <a href="/api/auth/login" className="items-center justify-end">
+                  <a className="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700">
+                    Anmelden
+                  </a>
+                </a>
               </div>
             </div>
           </div>

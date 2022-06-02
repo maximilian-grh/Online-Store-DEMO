@@ -21,6 +21,6 @@
     "**/*.tsx",
     "components/Navbar.js",
     "pages/checkout.jsx"
-  ],
+, "pages/_app.tsx"  ],
   "exclude": ["node_modules"]
 }
