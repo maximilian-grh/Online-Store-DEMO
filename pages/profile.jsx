@@ -1,26 +1,32 @@
 import { useUser } from "@auth0/nextjs-auth0";
 import { LogoutIcon } from "@heroicons/react/outline";
 
-const features = [
-  { name: "Bestellungen", description: "Designed by Good Goods, Inc." },
-  {
-    name: "Offene Zahlungen",
-    description:
-      "Solid walnut base with rare earth magnets and powder coated steel card cover",
-  },
-  { name: "E-Mail", description: "" },
-  {
-    name: "Telefonnummer",
-    description: "Hand sanded and finished with natural oil",
-  },
-  { name: "Lieferadresse", description: "Wood card tray and 3 refill packs" },
-];
-
 export default function Profile() {
   const { user, error, isLoading } = useUser();
 
   if (isLoading) return <div>Loading...</div>;
   if (error) return <div>{error.message}</div>;
+
+  const features = [
+    { name: "Bestellungen", description: "Letzte Bestellung am 14.05.2021" },
+    {
+      name: "Offene Zahlungen",
+      description: "Keine offene Zahlungen",
+    },
+    {
+      name: "Zahlungsart",
+      description: "VISA 4242 ****",
+    },
+    { name: "E-Mail", description: "maximilian@griehsler.info" },
+    {
+      name: "Telefonnummer",
+      description: "+43 680 1319 700",
+    },
+    {
+      name: "Lieferadresse",
+      description: "Johann-Weber-Straße 90/5, 1210 Wien",
+    },
+  ];
 
   return (
     user && (
@@ -39,7 +45,9 @@ export default function Profile() {
                 >
                   <div className="flex-col items-center justify-start font-semibold text-lg">
                     <p className="truncate font-bold">Guten Tag!</p>
-                    <p className="truncate font-light uppercase">{user.name}</p>
+                    <p className="truncate font-light uppercase">
+                      {user.nickname}
+                    </p>
                   </div>
                   <div className="flex text-sm items-center bg-red-100 hover:bg-red-500 hover:text-white py-2 px-4 cursor-pointer rounded-lg">
                     Abmelden

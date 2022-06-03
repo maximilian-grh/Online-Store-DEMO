@@ -1,8 +1,8 @@
+import { useUser } from "@auth0/nextjs-auth0";
+
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 
-const customer = await stripe.customers.retrieve({
-  email: user.email,
-});
+const { user } = useUser;
 
 export default async function handler(req, res) {
   if (req.method === "POST") {
@@ -64,7 +64,7 @@ export default async function handler(req, res) {
           },
         ],
         mode: "payment",
-        email: customer.id,
+        customer_email: user,
         success_url: `${req.headers.origin}/success`,
         cancel_url: `${req.headers.origin}/canceled`,
       });

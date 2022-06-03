@@ -298,7 +298,9 @@ export default function Navbar() {
                 </div>
                 <div className="flex-col pl-2">
                   <p className="truncate font-bold">Guten Tag!</p>
-                  <p className="truncate font-light uppercase">{user.name}</p>
+                  <p className="truncate font-light uppercase">
+                    {user.nickname}
+                  </p>
                 </div>
               </a>
             </div>
