@@ -1,5 +1,5 @@
 import initStripe from "stripe";
-import Image from 'next/image'
+import { useUser } from "@auth0/nextjs-auth0";
 
 const Pricing = ({ objects }) => {
   return (
@@ -9,7 +9,7 @@ const Pricing = ({ objects }) => {
           {objects.map((object) => (
             <div key={object.id} className="sm:flex flex-col-2 m-4">
               <div className="w-full aspect-w-1 aspect-h-1 overflow-hidden group-hover:opacity-75 lg:h-80 lg:aspect-none">
-                <Image
+                <img
                   src={object.images[0]}
                   alt={object.id}
                   className="h-full rounded-xl object-center justify-center object-cover"
@@ -50,7 +50,6 @@ const Pricing = ({ objects }) => {
     </div>
   );
 };
-
 export const getStaticProps = async () => {
   const stripe = initStripe(process.env.STRIPE_SECRET_KEY);
 

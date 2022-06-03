@@ -1,6 +1,5 @@
 import { useUser } from "@auth0/nextjs-auth0";
 import { LogoutIcon } from "@heroicons/react/outline";
-import Link from "next/link";
 
 export default function Profile() {
   const { user, error, isLoading } = useUser();
@@ -40,7 +39,7 @@ export default function Profile() {
             <div className="border-t border-gray-200 mt-5"></div>
             <div className="rounded-lg pt-10">
               {user ? (
-                <Link
+                <a
                   href="/api/auth/logout"
                   className="items-center justify-between flex"
                 >
@@ -54,18 +53,14 @@ export default function Profile() {
                     Abmelden
                     <LogoutIcon className="cursor-pointer h-6 w-6 ml-2" />
                   </div>
-                </Link>
+                </a>
               ) : (
-                <Link
-                  href="/api/auth/login"
-                  className="items-center justify-end"
-                >
+                <a href="/api/auth/login" className="items-center justify-end">
                   <div className="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700">
                     Anmelden
                   </div>
-                </Link>
+                </a>
               )}
-              ;
             </div>
 
             <div className="mt-16 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 sm:gap-y-16 lg:gap-x-8">

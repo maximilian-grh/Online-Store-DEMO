@@ -1,7 +1,5 @@
 /* This example requires Tailwind CSS v2.0+ */
 import { Fragment } from "react";
-import Link from "next/link";
-import Image from "next/image";
 import { Popover, Transition } from "@headlessui/react";
 import {
   BookmarkAltIcon,
@@ -106,15 +104,16 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="flex justify-between items-center border-b-2 border-gray-100 py-6 md:justify-start md:space-x-10">
           <div className="flex justify-start lg:w-0 lg:flex-1">
-            <Link href="/">
+            <a href="/">
               <span className="sr-only">Workflow</span>
-              <Image
+              <img
                 className="h-8 w-auto sm:h-10"
                 src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg"
                 alt=""
               />
-            </Link>
+            </a>
           </div>
+          <div className="flex justify-start lg:w-0 lg:flex-1"></div>
           <div className="-mr-2 -my-2 md:hidden">
             <Popover.Button className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
               <span className="sr-only">Open menu</span>
@@ -291,7 +290,7 @@ export default function Navbar() {
 
           {user ? (
             <div className="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
-              <Link
+              <a
                 href="/profile"
                 className="flex items-center justify-start font-semibold text-xs cursor-pointer hover:text-indigo-600"
               >
@@ -304,17 +303,17 @@ export default function Navbar() {
                     {user.nickname}
                   </p>
                 </div>
-              </Link>
+              </a>
             </div>
           ) : (
-            <Link
+            <a
               href="/api/auth/login"
               className="hidden md:flex items-center justify-end md:flex-1 lg:w-0"
             >
               <a className="cursor-pointer ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700">
                 Anmelden
               </a>
-            </Link>
+            </a>
           )}
         </div>
       </div>
@@ -336,7 +335,7 @@ export default function Navbar() {
             <div className="pt-5 pb-6 px-5">
               <div className="flex items-center justify-between">
                 <div>
-                  <Image
+                  <img
                     className="h-8 w-auto"
                     src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg"
                     alt="Workflow"
@@ -401,31 +400,30 @@ export default function Navbar() {
               <div className="rounded-lg pt-10">
                 <>
                   <div className="items-center justify-between flex">
-                    <Link
+                    <a
                       href="/profile"
                       className="flex items-center justify-start font-semibold text-xs cursor-pointer hover:text-indigo-600"
                     >
-                      <div className="h-6 w-6">
-                        <UserCircleIcon />
+                      <div>
+                        <div className="h-6 w-6">
+                          <UserCircleIcon />
+                        </div>
+                        <div className="flex-col pl-2">
+                          <p className="truncate font-bold">Guten Tag!</p>
+                          <p className="truncate font-light uppercase"></p>
+                        </div>
                       </div>
-                      <div className="flex-col pl-2">
-                        <p className="truncate font-bold">Guten Tag!</p>
-                        <p className="truncate font-light uppercase"></p>
-                      </div>
-                    </Link>
-                    <Link href="/api/auth/logout">
+                    </a>
+                    <a href="/api/auth/logout">
                       <LogoutIcon className="cursor-pointer h-6 w-6 ml-6 mr-6 hover:fill-white hover:stroke-red-600" />
-                    </Link>
+                    </a>
                   </div>
                 </>
-                <Link
-                  href="/api/auth/login"
-                  className="items-center justify-end"
-                >
+                <a href="/api/auth/login" className="items-center justify-end">
                   <a className="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700">
                     Anmelden
                   </a>
-                </Link>
+                </a>
               </div>
             </div>
           </div>

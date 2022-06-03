@@ -1,6 +1,6 @@
 import initStripe from "stripe";
 import Link from "next/link";
-import Image from 'next/image'
+import Image from "next/image";
 
 const Pricing = ({ objects }) => {
   return (
@@ -12,36 +12,29 @@ const Pricing = ({ objects }) => {
         <div className="mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
           {objects.map((object) => (
             <div key={object.id} className="group relative cursor-pointer">
-              <Link href={`/product/${object.id}`}>
-                <div>
-                  <div className="w-full min-h-80 bg-gray-200 aspect-w-1 aspect-h-1 rounded-xl overflow-hidden group-hover:opacity-75 lg:h-80 lg:aspect-none">
-                    <Image
-                      src={object.images[0]}
-                      alt={object.id}
-                      className="w-full h-full object-center object-cover lg:w-full lg:h-full"
-                    />
-                  </div>
-                  <div className="mt-4 flex justify-between">
-                    <div>
-                      <h3 className="text-sm text-gray-700">
-                        <a href={object.href}>
-                          <span
-                            aria-hidden="true"
-                            className="absolute inset-0"
-                          />
-                          {object.name}
-                        </a>
-                      </h3>
-                      <p className="mt-1 text-sm text-gray-500">
-                        {object.color}
-                      </p>
-                    </div>
-                    <p className="text-sm font-medium text-gray-900">
-                      {object.price / 100}€
-                    </p>
-                  </div>
+              <a href={`/product/${object.id}`}>
+                <div className="w-full min-h-80 bg-gray-200 aspect-w-1 aspect-h-1 rounded-xl overflow-hidden group-hover:opacity-75 lg:h-80 lg:aspect-none">
+                  <img
+                    src={object.images[0]}
+                    alt={object.id}
+                    className="w-full h-full object-center object-cover lg:w-full lg:h-full"
+                  />
                 </div>
-              </Link>
+              </a>
+              <div className="mt-4 flex justify-between">
+                <div>
+                  <h3 className="text-sm text-gray-700">
+                    <a href={object.href}>
+                      <span aria-hidden="true" className="absolute inset-0" />
+                      {object.name}
+                    </a>
+                  </h3>
+                  <p className="mt-1 text-sm text-gray-500">{object.color}</p>
+                </div>
+                <p className="text-sm font-medium text-gray-900">
+                  {object.price / 100}€
+                </p>
+              </div>
             </div>
           ))}
         </div>
