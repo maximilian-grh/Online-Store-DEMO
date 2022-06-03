@@ -1,4 +1,3 @@
-import "tailwindcss/tailwind.css";
 import initStripe from "stripe";
 
 const Pricing = ({ objects }) => {

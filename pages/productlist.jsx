@@ -1,7 +1,5 @@
-import "tailwindcss/tailwind.css";
 import initStripe from "stripe";
 import Link from "next/link";
-import { useRouter } from "next/router";
 
 const Pricing = ({ objects }) => {
   return (
