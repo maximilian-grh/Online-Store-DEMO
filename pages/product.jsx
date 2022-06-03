@@ -1,21 +1,22 @@
 import initStripe from "stripe";
+import Image from 'next/image'
 
 const Pricing = ({ objects }) => {
   return (
-    <div className="bg-white h-screen">
+    <div className="bg-white h-screen pb-10">
       <div className="max-w-2xl mx-auto py-16 sm:py-24 lg:max-w-7xl">
         <div className="mt-6">
           {objects.map((object) => (
-            <div key={object.id} className="flex">
-              <div className="w-full min-h-80 aspect-w-1 aspect-h-1 overflow-hidden group-hover:opacity-75 lg:h-80 lg:aspect-none">
-                <img
+            <div key={object.id} className="sm:flex flex-col-2 m-4">
+              <div className="w-full aspect-w-1 aspect-h-1 overflow-hidden group-hover:opacity-75 lg:h-80 lg:aspect-none">
+                <Image
                   src={object.images[0]}
                   alt={object.id}
                   className="h-full rounded-xl object-center justify-center object-cover"
                 />
               </div>
 
-              <div className="mt-4 flex w-full justify-end py-10 lg:pt-6 lg:pb-16 lg:col-start-1 lg:col-span-2 lg:pr-8">
+              <div className="mt-4 flex w-full md:justify-end lg:justify-end sm:justify-start py-10 lg:pt-6 lg:pb-16 lg:col-start-1 lg:col-span-2 lg:pr-8">
                 <div>
                   <h3 className="font-semibold text-2xl  text-black">
                     <a href={object.href}>
@@ -36,7 +37,7 @@ const Pricing = ({ objects }) => {
                         type="submit"
                         role="link"
                       >
-                        Zum Warenkorb hinzufügen
+                        Jetzt kaufen
                       </button>
                     </section>
                   </form>

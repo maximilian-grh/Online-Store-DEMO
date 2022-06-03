@@ -1,5 +1,6 @@
 import initStripe from "stripe";
 import Link from "next/link";
+import Image from 'next/image'
 
 const Pricing = ({ objects }) => {
   return (
@@ -14,7 +15,7 @@ const Pricing = ({ objects }) => {
               <Link href={`/product/${object.id}`}>
                 <div>
                   <div className="w-full min-h-80 bg-gray-200 aspect-w-1 aspect-h-1 rounded-xl overflow-hidden group-hover:opacity-75 lg:h-80 lg:aspect-none">
-                    <img
+                    <Image
                       src={object.images[0]}
                       alt={object.id}
                       className="w-full h-full object-center object-cover lg:w-full lg:h-full"
