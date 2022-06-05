@@ -316,7 +316,6 @@ export default function Navbar() {
           )}
         </div>
       </div>
-
       <Transition
         as={Fragment}
         enter="duration-200 ease-out"
@@ -370,7 +369,7 @@ export default function Navbar() {
                 </nav>
               </div>
             </div>
-            <div className="py-6 px-5 space-y-6">
+            < className="py-6 px-5 space-y-6">
               <div className="grid grid-cols-2 gap-y-4 gap-x-8">
                 <a
                   href="#"
@@ -395,29 +394,26 @@ export default function Navbar() {
                   </a>
                 ))}
               </div>
-
               <div className="rounded-lg pt-10">
-                <>
-                  <div className="items-center justify-between flex">
-                    <a
-                      href="/profile"
-                      className="flex items-center justify-start font-semibold text-xs cursor-pointer hover:text-indigo-600"
-                    >
-                      <div>
-                        <div className="h-6 w-6">
-                          <UserCircleIcon />
-                        </div>
-                        <div className="flex-col pl-2">
-                          <p className="truncate font-bold">Guten Tag!</p>
-                          <p className="truncate font-light uppercase"></p>
-                        </div>
+                <div className="items-center justify-between flex mb-4">
+                  <a
+                    href="/profile"
+                    className="flex items-center justify-start font-semibold text-xs cursor-pointer hover:text-indigo-600"
+                  >
+                      <div className="flex h-6 w-6">
+                        <UserCircleIcon />
                       </div>
-                    </a>
-                    <a href="/api/auth/logout">
-                      <LogoutIcon className="cursor-pointer h-6 w-6 ml-6 mr-6 hover:fill-white hover:stroke-red-600" />
-                    </a>
-                  </div>
-                </>
+                      <div className="flex-col pl-2">
+                        <p className="truncate font-bold">Guten Tag!</p>
+                        <p className="truncate font-light uppercase">
+                          {user.nickname}
+                        </p>
+                      </div>
+                  </a>
+                  <a href="/api/auth/logout">
+                    <LogoutIcon className="cursor-pointer h-6 w-6 ml-6 mr-6 hover:fill-white hover:stroke-red-600" />
+                  </a>
+                </div>
                 <a href="/api/auth/login" className="items-center justify-end">
                   <a className="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700">
                     Anmelden
