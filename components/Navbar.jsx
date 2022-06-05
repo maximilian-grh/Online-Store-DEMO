@@ -369,7 +369,7 @@ export default function Navbar() {
                 </nav>
               </div>
             </div>
-            < className="py-6 px-5 space-y-6">
+            <div className="py-6 px-5 space-y-6">
               <div className="grid grid-cols-2 gap-y-4 gap-x-8">
                 <a
                   href="#"
@@ -400,15 +400,13 @@ export default function Navbar() {
                     href="/profile"
                     className="flex items-center justify-start font-semibold text-xs cursor-pointer hover:text-indigo-600"
                   >
-                      <div className="flex h-6 w-6">
-                        <UserCircleIcon />
-                      </div>
-                      <div className="flex-col pl-2">
-                        <p className="truncate font-bold">Guten Tag!</p>
-                        <p className="truncate font-light uppercase">
-                          {user.nickname}
-                        </p>
-                      </div>
+                    <div className="flex h-6 w-6">
+                      <UserCircleIcon />
+                    </div>
+                    <div className="flex-col pl-2">
+                      <p className="truncate font-bold">Guten Tag!</p>
+                      <p className="truncate font-light uppercase"></p>
+                    </div>
                   </a>
                   <a href="/api/auth/logout">
                     <LogoutIcon className="cursor-pointer h-6 w-6 ml-6 mr-6 hover:fill-white hover:stroke-red-600" />

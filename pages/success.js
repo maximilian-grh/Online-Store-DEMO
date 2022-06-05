@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import Link from "next/link";
 import "tailwindcss/tailwind.css";
 import { CheckIcon } from "@heroicons/react/solid";

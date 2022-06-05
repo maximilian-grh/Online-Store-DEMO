@@ -10,7 +10,7 @@ const Pricing = ({ objects }) => {
         <div className="mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
           {objects.map((object) => (
             <div key={object.id} className="group relative cursor-pointer">
-              <a href={`${object.name}`}>
+              <a href={`/productpage/${object.name}`}>
                 <div className="w-full min-h-80 bg-gray-200 aspect-w-1 aspect-h-1 rounded-xl overflow-hidden group-hover:opacity-75 lg:h-80 lg:aspect-none">
                   <img
                     src={object.images[0]}
