@@ -1,9 +1,7 @@
 import { SpeakerphoneIcon, XIcon } from "@heroicons/react/outline";
-import React, { useState } from "react";
-import Link from "next/link";
+import React from "react";
 
 export default function InfoBanner() {
-  const [show, setShow] = useState(false);
   return (
     <div className="bg-indigo-600">
       <div className="max-w-7xl mx-auto py-3 px-4">

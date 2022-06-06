@@ -2,22 +2,22 @@ import { commerce } from "../lib/commerce";
 import ProductListing from "../components/ProductListing";
 
 export async function getStaticProps() {
-  const merchant = await commerce.merchants.about();
+  const { data: categories } = await commerce.categories.list();
   const { data: products } = await commerce.products.list();
 
   return {
     props: {
-      merchant,
       products,
+      categories,
     },
   };
 }
 
-const Index = ({ merchant, products }) => (
+const Index = ({ products, categories }) => (
   <div>
-    <Header merchant={merchant} />
-    <Hero />
     <ProductListing products={products} />
+    <pre>{JSON.stringify(products, null, 2)}</pre>
+    <pre>{JSON.stringify(categories, null, 2)}</pre>
   </div>
 );
 

@@ -24,7 +24,7 @@ const solutions = [
   {
     name: "Unsere Produkte",
     description: "Kurzbeschreibung",
-    href: "/productlist",
+    href: "/products",
     icon: SearchIcon,
   },
   {
