@@ -1,4 +1,4 @@
-import { useCartDispatch, useCartState } from "../context/cart";
+import { useCartDispatch, useCartState } from "../context/cartfunction";
 
 import commerce from "../lib/commerce";
 
@@ -26,12 +26,25 @@ function CartItem({ id, name, quantity, line_total }) {
       <p>{quantity}</p>
       <p>{line_total.formatted_with_symbol}</p>
       <div>
-        <button className="bg-black" onClick={decrementQuantity}>
+        <button
+          onClick={decrementQuantity}
+          className="bg-gray-200 rounded-full px-3 py-1 text-lg font-bold"
+        >
           -
         </button>
-        <button onClick={incrementQuantity}>+</button>
+        <button
+          onClick={incrementQuantity}
+          className="bg-gray-200 rounded-full px-3 py-1 text-lg font-bold"
+        >
+          +
+        </button>
       </div>
-      <button onClick={removeItem}>&times;</button>
+      <button
+        onClick={removeItem}
+        className="bg-gray-200 rounded-full px-3 py-1 text-md"
+      >
+        Entfernen
+      </button>
     </div>
   );
 }
@@ -41,7 +54,7 @@ export default function CartPage() {
 
   const isEmpty = line_items.length === 0;
 
-  if (isEmpty) return <p>Your cart is empty</p>;
+  if (isEmpty) return <p>Dein Warenkorb ist leer</p>;
 
   return (
     <div>
@@ -54,7 +67,7 @@ export default function CartPage() {
       <hr />
 
       <p>
-        <strong>Sub total:</strong> {subtotal.formatted_with_symbol}
+        <strong>Gesamtbetrag:</strong> {subtotal.formatted_with_symbol}
       </p>
     </div>
   );

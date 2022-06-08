@@ -1,7 +1,7 @@
 import "tailwindcss/tailwind.css";
 
-import Layout from "../components/Layout";
-import Hero from "../components/Hero";
+import Layout from "../components/Main/Layout";
+import Hero from "../components/Main/Hero";
 
 const Home = () => {
   return (
