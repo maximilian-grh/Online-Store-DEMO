@@ -38,8 +38,9 @@ export default function ProductPage({ product }) {
 
   return (
     <div>
+      <img src={product.image} alt={product.name} />
+      <pre>{JSON.stringify(product, null, 2)}</pre>
       <h1>{product.name}</h1>
-      <p>{product.price.formatted_with_symbol}</p>
       <button
         onClick={addToCart}
         className="text-white bg-indigo-500 rounded-lg py-2 px-2"
